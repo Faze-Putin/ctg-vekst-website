@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="CTG Vekst – digitale løsninger for bedrifter som vil vokse. Nettsider, SEO, AI og digitale systemer.">
+<title>CTG Vekst — Digitale løsninger for bedrifter</title>
+<style>
+:root{
+  --ink:#f3f7f3;
+  --muted:#aab6ae;
+  --paper:#0b1911;
+  --paper-2:#102319;
+  --green:#36c95a;
+  --green-dark:#15933a;
+  --green-soft:#dff4e3;
+  --forest:#0b1911;
+  --forest-2:#102319;
+  --line:rgba(255,255,255,.12);
+  --white:#fff;
+  --radius:28px;
+  --max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,a{font:inherit}
+.container{width:min(calc(100% - 48px),var(--max));margin:auto}
+.nav{position:fixed;z-index:20;top:18px;left:50%;transform:translateX(-50%);width:min(calc(100% - 32px),1160px);display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border:1px solid rgba(255,255,255,.12);background:rgba(11,25,17,.78);backdrop-filter:blur(18px);border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.04em}.brand-logo{display:block;width:164px;height:auto;max-height:44px;object-fit:contain;object-position:left center}
+.navlinks{display:flex;gap:28px;font-size:13px;color:#c6d0ca}
+.navlinks a:hover{color:var(--green-dark)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:14px 20px;font-weight:800;cursor:pointer;transition:.25s ease}
+.btn-green{background:var(--green);color:#071109;box-shadow:0 10px 24px rgba(54,201,90,.2)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(54,201,90,.3)}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#f3f7f3}
+.hero{min-height:100vh;display:grid;place-items:center;position:relative;padding:150px 0 100px;overflow:hidden}
+.hero:before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(54,201,90,.18),transparent 65%);top:-220px;right:-180px;filter:blur(8px)}
+.hero-grid{position:absolute;inset:0;opacity:.28;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green-dark);font-weight:900;text-transform:uppercase;letter-spacing:.15em;font-size:11px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 7px rgba(54,201,90,.12)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:1000px}
+.hero h1{font-size:clamp(52px,6.8vw,92px);line-height:.9;letter-spacing:-.075em;margin:24px 0 30px;font-weight:900}
+.hero h1 .green{color:#73e48d}
+.hero-copy{max-width:670px;margin:0 auto;color:#aab6ae;font-size:18px;line-height:1.7}
+.hero-actions{display:flex;justify-content:center;gap:12px;margin-top:34px;flex-wrap:wrap}
+.hero-note{margin-top:18px;color:#7f8b83;font-size:12px}
+.floating-card{position:absolute;background:rgba(255,255,255,.76);border:1px solid rgba(16,21,18,.1);box-shadow:0 30px 80px rgba(16,21,18,.12);backdrop-filter:blur(14px);border-radius:22px;padding:18px;text-align:left}
+.card-a{right:8%;top:29%;animation:float 6s ease-in-out infinite}.card-b{left:7%;bottom:18%;animation:float 7s ease-in-out infinite reverse}
+.mini-title{font-size:11px;color:#778078}.metric{font-size:30px;font-weight:900;letter-spacing:-.06em}.metric.green{color:var(--green-dark)}.mini-line{height:3px;width:110px;background:var(--green-soft);border-radius:9px;margin-top:8px;overflow:hidden}.mini-line i{display:block;height:100%;width:72%;background:var(--green);animation:grow 2.5s ease-in-out infinite alternate}
+section{padding:125px 0;background:var(--paper);color:#f3f7f3}
+
+/* CTG Vekst visual identity + intro */
+.intro-screen{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#07130c;animation:introOut 1s cubic-bezier(.76,0,.24,1) 3.8s forwards;pointer-events:none}
+.intro-logo-wrap{position:relative;width:min(78vw,980px);animation:introLogoIn .9s cubic-bezier(.16,1,.3,1) .12s both}
+.intro-logo-base{display:block;width:100%;height:auto}
+.intro-tree-cover{position:absolute;left:45%;top:0;width:34%;height:64%;background:#07130c;clip-path:polygon(43% 0,100% 0,90% 38%,73% 59%,58% 74%,48% 100%,34% 86%,12% 59%,0 40%,20% 18%);z-index:2}
+.intro-tree{position:absolute;left:46.2%;top:-.4%;width:29.3%;height:auto;transform-origin:50% 100%;z-index:3;animation:treeGrow 1.35s cubic-bezier(.16,1,.3,1) .65s both}
+.intro-tagline{position:absolute;left:50%;top:calc(50% + min(25vw,245px));transform:translateX(-50%);display:flex;align-items:center;gap:20px;white-space:nowrap;font-size:clamp(9px,1vw,13px);font-weight:800;letter-spacing:.3em;color:#dfe8e2;animation:tagIn .7s ease 1.7s both}
+.intro-tagline span{width:70px;height:2px;background:#36c95a}
+@keyframes introLogoIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes treeGrow{from{opacity:0;transform:translateY(34%) scaleY(.05)}to{opacity:1;transform:none}}
+@keyframes tagIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+
+.showcase{background:linear-gradient(135deg,var(--forest),#102018);color:#f6f8f4}
+.showcase .section-head p{color:#aeb9b1}
+.showcase .kicker{color:#73e48d}
+.showcase .template{background:#102319;border-color:rgba(255,255,255,.12);color:#f6f8f4}
+.showcase .template p{color:#aeb9b1}
+.showcase .template .pill{color:#73e48d}
+.showcase .mock.large{background:linear-gradient(135deg,#0d1b13,#183322);box-shadow:0 30px 80px rgba(0,0,0,.28)}
+.showcase .mock.small{background:#142a1d;color:#f3f7f3}
+.showcase .mock.small p{color:#aab6ae}
+.showcase .mock.small .mock-tag{color:#8be7a0!important;border-color:rgba(255,255,255,.12)!important}
+.showcase .mock:before{background:radial-gradient(circle at 75% 25%,rgba(54,201,90,.24),transparent 35%)}
+
+.growth{background:var(--forest)}
+.growth h2 .growth-light{color:#73e48d}
+.services{grid-template-columns:repeat(3,1fr)}
+.section-dark{background:var(--forest);color:#f6f8f4;position:relative;overflow:hidden}
+.section-dark:after{content:"";position:absolute;width:600px;height:600px;right:-260px;top:-250px;border-radius:50%;background:radial-gradient(circle,rgba(54,201,90,.18),transparent 65%)}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.15em;font-weight:900;color:var(--green-dark);margin-bottom:18px}
+.dark-kicker{color:#73e48d}
+.section-head{display:flex;justify-content:space-between;gap:50px;align-items:end;margin-bottom:55px}
+.section-head h2{font-size:clamp(42px,5vw,76px);line-height:.95;letter-spacing:-.065em;margin:0;max-width:800px}
+.section-head p{max-width:420px;color:var(--muted);line-height:1.7;margin:0}.section-dark p{color:#aab3ad}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.service{min-height:260px;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;justify-content:space-between;background:#102319;transition:.35s ease}
+.service:hover{transform:translateY(-6px);background:#142c1e;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+.service-icon{width:48px;height:48px;border-radius:14px;background:var(--green-soft);display:grid;place-items:center;color:var(--green-dark);font-weight:900}
+.service h3{font-size:26px;letter-spacing:-.04em;margin:22px 0 8px}.service p{color:#aab6ae;line-height:1.6;margin:0;max-width:430px}
+.service-num{font-size:11px;color:#8a938d;font-weight:800;letter-spacing:.12em}
+.growth{position:relative}
+.growth-layout{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.growth h2{font-size:clamp(44px,6vw,86px);line-height:.93;letter-spacing:-.07em;margin:0 0 28px}
+.growth p{color:#aab3ad;line-height:1.8;max-width:560px}
+.trajectory{position:relative;height:500px}
+.trajectory svg{width:100%;height:100%;overflow:visible}
+.path-bg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:2}
+.path{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.5s ease}
+.growth.in .path{stroke-dashoffset:0;animation:drawGlow 2.1s ease-out forwards}
+.growth .node{opacity:0;transform-box:fill-box;transform-origin:center}
+.growth.in .node{animation:nodePop .45s cubic-bezier(.16,1,.3,1) forwards}
+.growth.in .node:nth-of-type(2){animation-delay:.45s}.growth.in .node:nth-of-type(3){animation-delay:.75s}.growth.in .node:nth-of-type(4){animation-delay:1.05s}.growth.in .node:nth-of-type(5){animation-delay:1.35s}
+@keyframes nodePop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+@keyframes drawGlow{0%{filter:drop-shadow(0 0 0 rgba(54,201,90,0))}65%{filter:drop-shadow(0 0 10px rgba(54,201,90,.28))}100%{filter:drop-shadow(0 0 0 rgba(54,201,90,0))}}
+.node{fill:var(--ink);stroke:var(--green);stroke-width:3}
+.node-label{fill:#dbe3dd;font-size:12px;font-weight:800;letter-spacing:.05em}
+.process{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.step{padding:30px 20px 30px 0;border-right:1px solid var(--line);min-height:240px}.step:not(:first-child){padding-left:22px}.step:last-child{border-right:0}
+.step-num{font-size:12px;color:var(--green-dark);font-weight:900}.step h3{font-size:22px;letter-spacing:-.04em;margin:42px 0 10px}.step p{color:#aab6ae;line-height:1.6;font-size:14px}
+.showcase{background:linear-gradient(135deg,var(--forest),#102018);color:#f6f8f4}
+.showcase-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:16px}
+.mock{border-radius:32px;overflow:hidden;background:#111714;min-height:520px;position:relative;color:#fff;padding:38px;box-shadow:0 30px 80px rgba(16,21,18,.12)}
+.mock.large{background:linear-gradient(135deg,#111714,#1c2c20)}
+.mock:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(54,201,90,.32),transparent 35%)}
+.mock-content{position:relative;z-index:1}
+.mock-tag{display:inline-block;padding:8px 11px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:10px;color:#c5cec7}
+.mock h3{font-size:54px;line-height:.95;letter-spacing:-.07em;margin:70px 0 20px;max-width:650px}.mock p{color:#b7c0b9;max-width:470px;line-height:1.7}
+.mock .fake-ui{position:absolute;right:30px;bottom:28px;width:44%;height:190px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:18px;backdrop-filter:blur(10px)}
+.fake-bar{height:8px;background:rgba(255,255,255,.13);border-radius:10px;margin-bottom:15px}.fake-bar.green{background:var(--green);width:62%}.fake-chart{height:90px;display:flex;align-items:end;gap:7px}.fake-chart i{display:block;flex:1;background:rgba(54,201,90,.3);border-radius:5px 5px 0 0}.fake-chart i:nth-child(1){height:28%}.fake-chart i:nth-child(2){height:38%}.fake-chart i:nth-child(3){height:34%}.fake-chart i:nth-child(4){height:56%}.fake-chart i:nth-child(5){height:65%}.fake-chart i:nth-child(6){height:82%}.mock.small{min-height:252px;padding:30px;background:#fff;color:var(--ink)}.mock.small:before{display:none}.mock.small h3{font-size:34px;margin:42px 0 12px}.mock.small p{color:var(--muted);font-size:14px}.templates{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.template{display:block;background:#102319;border-radius:24px;padding:28px;min-height:250px;border:1px solid rgba(255,255,255,.12);transition:.3s;position:relative;overflow:hidden}.template:before{content:"";position:absolute;width:220px;height:220px;right:-110px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(54,201,90,.18),transparent 68%);pointer-events:none}.template:hover{transform:translateY(-5px);border-color:rgba(115,228,141,.35);box-shadow:0 24px 60px rgba(0,0,0,.22)}.template .pill{font-size:10px;color:#73e48d;font-weight:900;text-transform:uppercase;letter-spacing:.1em}.template h4{font-size:30px;margin:38px 0 10px;letter-spacing:-.04em;color:#f3f7f3}.template p{color:#aeb9b1;font-size:14px;line-height:1.55;max-width:320px}.template-link{display:inline-block;margin-top:26px;color:#73e48d;font-size:13px;font-weight:800}.kicker-white{color:#f3f7f3!important}
+.no-proof{padding:18px 22px;border:1px dashed rgba(54,201,90,.5);border-radius:18px;background:rgba(54,201,90,.06);color:#aab6ae;font-size:13px;line-height:1.6}
+.contact{background:#102319;position:relative;overflow:hidden;border-top:1px solid rgba(54,201,90,.18)}
+.contact:before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:rgba(255,255,255,.12);right:-300px;top:-350px}
+.contact h2{font-size:clamp(48px,6.5vw,86px);line-height:.88;letter-spacing:-.08em;margin:0 0 28px;max-width:950px}
+.contact p{max-width:580px;font-size:18px;line-height:1.7;color:#aab6ae}
+.contact .btn-dark{margin-top:28px;background:var(--green);color:#071109;box-shadow:0 10px 28px rgba(54,201,90,.18)}
+footer{background:#07150d;color:#aab3ad;padding:55px 0 35px}.footer-top{display:flex;justify-content:space-between;gap:30px}.footer-brand{color:#fff;font-size:20px;font-weight:900}.footer-brand em{color:var(--green);font-style:normal}.footer-links{display:flex;gap:24px;font-size:13px}.footer-bottom{margin-top:55px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.reveal.in{opacity:1;transform:none}
+@keyframes float{50%{transform:translateY(-13px)}}@keyframes grow{to{width:100%}}
+@media(max-width:900px){
+ .navlinks{display:none}.container{width:min(calc(100% - 32px),var(--max))}.brand-logo{width:142px;max-height:40px}
+ .hero{padding-top:130px}.intro-logo-wrap{width:min(92vw,720px)}.intro-tagline{top:calc(50% + min(29vw,180px));gap:10px;letter-spacing:.18em}.intro-tagline span{width:35px}.floating-card{display:none}.hero h1{font-size:clamp(48px,12vw,78px)}
+ .section-head,.growth-layout{grid-template-columns:1fr;display:grid}.services{grid-template-columns:1fr}.process{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);min-height:auto;padding:28px 0!important}.step h3{margin:20px 0 8px}
+ .showcase-grid{grid-template-columns:1fr}.templates{grid-template-columns:1fr}.mock{min-height:470px}.mock .fake-ui{width:65%}.footer-top,.footer-bottom{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.intro-screen{display:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="#top" aria-label="CTG Vekst">
+    <img class="brand-logo" src="ctg-vekst-logo-dark.png" alt="CTG Vekst">
+  </a>
+  <div class="navlinks">
+    <a href="#tjenester">Tjenester</a>
+    <a href="#prosess">Prosess</a>
+    <a href="#templates">Arbeid</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="intro-screen" aria-hidden="true">
+    <div class="intro-logo-wrap">
+      <img class="intro-logo-base" src="ctg-vekst-logo-dark.png" alt="CTG Vekst">
+      <div class="intro-tree-cover"></div>
+      <img class="intro-tree" src="ctg-vekst-tree.png" alt="">
+    </div>
+    <div class="intro-tagline"><span></span> DIGITALE LØSNINGER FOR BEDRIFTER <span></span></div>
+  </div>
+  <div class="hero-content container">
+    <div class="eyebrow"><span class="dot"></span> Digitale løsninger for bedrifter</div>
+    <h1>Digitale løsninger<br>for bedrifter <span class="green">som vil vokse.</span></h1>
+    <p class="hero-copy">Vi bygger nettsider og digitale løsninger som gjør bedriften din enklere å finne, enklere å velge og enklere å drive.</p>
+    <div class="hero-actions">
+      <a class="btn btn-green" href="#kontakt">Book et møte <span>↗</span></a>
+      <a class="btn btn-ghost" href="#tjenester">Se hva vi gjør <span>↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="tjenester">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="kicker kicker-white">Mer enn en nettside</div><h2>Alt som skal til for å maksimere antall kunder dere får fra nettsiden deres.</h2></div>
+      <p>Vi starter med det som gir mest mening for bedriften din — og bygger videre når du er klar.</p>
+    </div>
+    <div class="services">
+      <article class="service reveal"><div><div class="service-icon">01</div><h3>Nettsider</h3><p>Et moderne førsteinntrykk bygget rundt kundene dine, tjenestene dine og det du faktisk vil oppnå.</p></div><div class="service-num">DESIGN · UTVIKLING · KONVERTERING</div></article>
+      <article class="service reveal"><div><div class="service-icon">02</div><h3>SEO & synlighet</h3><p>Gjør det enklere for riktige kunder å finne deg når de allerede leter etter det du tilbyr.</p></div><div class="service-num">SØK · LOKALT · TEKNISK</div></article>
+      <article class="service reveal"><div><div class="service-icon">03</div><h3>AI & automasjon</h3><p>La teknologi ta seg av oppgaver som ikke trenger å være manuelle — fra intelligente chatløsninger til automatiserte arbeidsflyter.</p></div><div class="service-num">AI · INTEGRASJON · AUTOMASJON</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark growth" id="vekst">
+  <div class="container growth-layout">
+    <div class="reveal">
+      <div class="kicker dark-kicker">Vekst er en prosess</div>
+      <h2>En bedre digital opplevelse kan starte <span class="growth-light">enkelt.</span></h2>
+      <p>Nettsiden er ofte første steg. Derfra bygger vi videre med synlighet, AI og automatisering — når det faktisk skaper verdi.</p>
+    </div>
+    <div class="trajectory reveal" aria-label="Illustrasjon av digital vekst">
+      <svg viewBox="0 0 620 500" role="img">
+        <path class="path-bg" d="M35 440 C120 450 130 350 200 365 S270 410 320 300 S400 250 440 190 S515 110 585 40"/>
+        <path class="path" d="M35 440 C120 450 130 350 200 365 S270 410 320 300 S400 250 440 190 S515 110 585 40"/>
+        <circle class="node" cx="35" cy="440" r="8"/><circle class="node" cx="200" cy="365" r="8"/><circle class="node" cx="320" cy="300" r="8"/><circle class="node" cx="440" cy="190" r="8"/><circle class="node" cx="585" cy="40" r="9"/>
+        <text class="node-label" x="28" y="475">NETTSIDE</text><text class="node-label" x="180" y="402">SEO</text><text class="node-label" x="292" y="337">AI</text><text class="node-label" x="408" y="227">AUTOMASJON</text><text class="node-label" x="505" y="25">VEKST ↗</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="prosess">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="kicker">Slik jobber vi</div><h2>Fra idé til ferdig løsning.</h2></div>
+      <p>Vi starter med å forstå bedriften, før vi designer og bygger en løsning som passer den.</p>
+    </div>
+    <div class="process">
+      <div class="step reveal"><div class="step-num">01</div><h3>Kartlegg</h3><p>Vi lærer bedriften, kundene og målene dine å kjenne.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h3>Konsept</h3><p>Vi finner retningen og viser hvordan løsningen kan se ut.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h3>Design</h3><p>Vi designer rundt merkevaren og kundene dine — ikke omvendt.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h3>Bygg</h3><p>Vi utvikler, tester og gjør løsningen klar for lansering.</p></div>
+      <div class="step reveal"><div class="step-num">05</div><h3>Voks</h3><p>Vi forbedrer og kobler på nye digitale verktøy når det gir mening.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="templates">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="kicker">Se hva vi kan bygge</div><h2>Velg en retning. Vi tilpasser den til bedriften.</h2></div>
+      <p>Se noen av retningene vi kan bygge videre på. Hver demo åpnes som en egen nettside.</p>
+    </div>
+    <div class="templates">
+      <a class="template reveal" href="templates/restaurant.html">
+        <div class="pill">Template 01</div><h4>Restaurant</h4><p>Stemning, meny, åpningstider og en tydelig vei til bordbestilling.</p><span class="template-link">Se demo ↗</span>
+      </a>
+      <a class="template reveal" href="templates/bilpleie.html">
+        <div class="pill">Template 02</div><h4>Bilpleie</h4><p>Før/etter, tjenester, priser og et premium førsteinntrykk.</p><span class="template-link">Se demo ↗</span>
+      </a>
+      <a class="template reveal" href="templates/handverk.html">
+        <div class="pill">Template 03</div><h4>Håndverk</h4><p>Tillit, tjenester, referanser og tydelige henvendelser.</p><span class="template-link">Se demo ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="container reveal">
+    <div class="kicker" style="color:#73e48d">Neste steg</div>
+    <h2>La oss bygge noe som gjør at kundene dine stopper opp.</h2>
+    <p>Fortell oss kort om bedriften din. Så ser vi på hva som faktisk kan forbedres.</p>
+    <a class="btn btn-dark" href="mailto:hei@ctgvekst.no?subject=Ta%20kontakt%20med%20CTG%20Vekst">Ta kontakt <span>↗</span></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">CTG <em>VEKST</em><br><small style="color:#7e8982;font-weight:500">Digitale løsninger for bedrifter.</small></div>
+      <div class="footer-links"><a href="#tjenester">Tjenester</a><a href="#prosess">Prosess</a><a href="#templates">Arbeid</a><a href="#kontakt">Kontakt</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 CTG Vekst</span><span>hei@ctgvekst.no</span></div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})
+},{threshold:.14});
+document.querySelectorAll('.reveal,.growth').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
